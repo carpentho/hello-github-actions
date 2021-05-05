@@ -26,5 +26,6 @@ jobs:
           uses: docker/build-push-action@v2
           with:
             push: true
-            repository: carpentho/hello-github-actions
-            tags: user/app:latest
+            registry: carpentho/hello-github-actions
+            repository: carpentho/hello-github-actions/ubuntu-latest
+            tag_with_ref: true
