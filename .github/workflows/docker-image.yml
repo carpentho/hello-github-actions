@@ -13,18 +13,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-        - uses: actions/checkout@v1
-        - name: Login to DockerHub Registry
-          run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-        - name: Get the version
-          id: vars
-          run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
-        - name: Build the tagged Docker image
-          run: docker build . --file Dockerfile --tag pjlamb12/angular-cli:${{steps.vars.outputs.tag}}
-        - name: Push the tagged Docker image
-          run: docker push pjlamb12/angular-cli:${{steps.vars.outputs.tag}}
-        - name: Build the latest Docker image
-          run: docker build . --file Dockerfile --tag pjlamb12/angular-cli:latest
-        - name: Push the latest Docker image
-          run: docker push pjlamb12/angular-cli:latest
+        - name: Check out the repo
+          uses: actions/checkout@v1
+        - name: Login to DockerHub
+          uses: docker/login-action@v1
+          with:
+            username: ${{ secrets.DOCKERHUB_USERNAME }}
+            password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          
+        - name: Build and push
+          id: docker_build
+          uses: docker/build-push-action@v2
+          with:
+            push: true
+            tag_with_ref: true
+            repository: carpentho/hello-github-actions
      
