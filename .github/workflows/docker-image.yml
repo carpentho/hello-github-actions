@@ -27,7 +27,7 @@ jobs:
           id: docker_build
           uses: docker/build-push-action@v2
           with:
-            context: .
+            context: hello-github-actions/action-a/Dockerfile
             push: true
             tags: carpentho/hello-github-actions:latest
           
