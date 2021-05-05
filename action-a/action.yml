@@ -1,0 +1,17 @@
+nom : " Bonjour Actions "
+ description : " Saluez quelqu'un "
+ auteur : " octocat@github.com "
+
+entrées :
+   MY_NAME :
+     description : " Qui saluer "
+     obligatoire : vrai 
+    par défaut : " Monde "
+
+s'exécute : en
+   utilisant : image " docker "
+   : " Dockerfile "
+
+branding :
+   icon : " mic "
+   couleur : " purple "
