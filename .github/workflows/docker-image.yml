@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-       
         - name: Check out the repo
           uses: actions/checkout@v1
         - name: Login to DockerHub
