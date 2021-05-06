@@ -1,0 +1,25 @@
+name: A workflow for my Hello World file
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+
+jobs:
+  test:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Setup bats
+        uses: mig4/setup-bats@v1
+        with:
+          bats-version: 1.2.1
+          
+      - name: Copy
+      - uses: actions/checkout@v1
+
+      - name: Testing
+        run: bats testBats.sh
