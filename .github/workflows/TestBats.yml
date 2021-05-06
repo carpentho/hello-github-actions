@@ -1,4 +1,4 @@
-name: A workflow for my Hello World file
+name: A workflow for my Hello World file Test mona
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
           
       - name: Copy
         uses: actions/checkout@v1
-      - name: give 
+      - name: give right
         run: sudo chmod 755 ./action-a/entrypoint.sh
 
       - name: Testing
