@@ -21,6 +21,8 @@ jobs:
           
       - name: Copy
         uses: actions/checkout@v1
+      - name: give 
+        run: sudo chmod 755 ./action-a/entrypoint.sh
 
       - name: Testing
         run: bats test/testBats.bat
