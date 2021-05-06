@@ -9,7 +9,8 @@ on:
 
 jobs:
   test:
-    
+  
+    name: Setup bats
     runs-on: ubuntu-latest
     
     steps:
@@ -19,7 +20,7 @@ jobs:
           bats-version: 1.2.1
           
       - name: Copy
-      - uses: actions/checkout@v1
+        uses: actions/checkout@v1
 
       - name: Testing
         run: bats testBats.sh
